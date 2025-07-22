@@ -5,7 +5,7 @@
 }
 
 .app-header {
-  background-color: #f0f0f0;
+  background-color: var(--header-bg);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
 
 .app-header h1 {
   margin: 0;
-  color: #333;
+  color: var(--text-color);
 }
 
 .app-main {
@@ -26,12 +26,13 @@
   width: 100%;
 }
 
-.form-section {
-  background: white;
+.form-section,
+.contacts-section {
+  background: var(--section-bg);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  color: var(--text-color);
 }
 
 .contact-form {
@@ -49,7 +50,7 @@
 
 .form-group label {
   font-weight: 600;
-  color: #555;
+  color: var(--label-color);
 }
 
 .form-group input {
@@ -57,6 +58,8 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
 }
 
 .form-actions {
@@ -92,13 +95,7 @@
   background-color: #da190b;
 }
 
-.contacts-section {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
+/* CONTACTOS */
 .search-bar {
   margin-bottom: 1.5rem;
 }
@@ -109,6 +106,8 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
 }
 
 .contact-list ul {
@@ -123,6 +122,7 @@
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #eee;
+  color: var(--text-color);
 }
 
 .contact-item:last-child {
@@ -167,30 +167,7 @@
   padding: 2rem;
 }
 
-.theme-toggle {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #666;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.theme-toggle:hover {
-  background-color: #555;
-}
-
-body.light {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-body.dark {
-  background-color: #1e1e1e;
-  color: #ffffff;
-}
-
+/* BOTÓN DE TEMA */
 .theme-toggle {
   padding: 0.5rem 1rem;
   border: none;
@@ -198,4 +175,30 @@ body.dark {
   color: white;
   cursor: pointer;
   border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #555;
+}
+
+/* THEMING */
+body.light {
+  --header-bg: #f0f0f0;
+  --section-bg: #ffffff;
+  --text-color: #000000;
+  --label-color: #555;
+  --input-bg: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  --header-bg: #2a2a2a;
+  --section-bg: #333333;
+  --text-color: #ffffff;
+  --label-color: #cccccc;
+  --input-bg: #444444;
+  background-color: #1e1e1e;
+  color: #ffffff;
 }
