@@ -24,14 +24,24 @@ function App() {
   }
 
   const handleEditContact = (contact: Contact) => {
-    console.log('Editar contacto:', contact)
+    setEditingContact(contact)
   }
 
   const handleUpdateContact = (updatedContact: Contact) => {
-    console.log('Actualizar contacto:', updatedContact)
+    setContacts(prevContacts =>
+      prevContacts.map(contact =>
+        contact.id === updatedContact.id ? updatedContact : contact
+      )
+    )
+    setEditingContact(null)
   }
 
-  const filteredContacts = contacts
+  const filteredContacts = contacts.filter((contact) =>
+  [contact.name, contact.phone].some((field) =>
+    field.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+);
+
 
   return (
     <div className="app">
@@ -42,7 +52,7 @@ function App() {
       
       <main className="app-main">
         <section className="form-section">
-          <h2>Agregar Contacto</h2>
+          <h2>{editingContact ? 'Editar Contacto' : 'Agregar Contacto'}</h2>
           <ContactForm 
             onSubmit={handleAddContact}
             editingContact={editingContact}

@@ -180,3 +180,22 @@
 .theme-toggle:hover {
   background-color: #555;
 }
+
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.theme-toggle {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #888;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
